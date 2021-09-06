@@ -1,4 +1,4 @@
-name: include
+name: default
 
 on:
   schedule:

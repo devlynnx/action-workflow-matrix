@@ -1,5 +1,4 @@
 ---
-
 matrix: &default
   node: [12, 14]
   os: [ubuntu-latest, windows-latest, macos-latest]
