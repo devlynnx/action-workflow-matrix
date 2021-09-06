@@ -1,9 +1,9 @@
-name: 'Workflow matrix'
+name: 'workflow-matrix'
 description: Generate build matrix from yaml file
 author: Dmytro Bondar
 
 branding:
-  icon: greed
+  icon: grid
   color: green
 
 inputs:
