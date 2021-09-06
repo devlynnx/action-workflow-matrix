@@ -1,0 +1,41 @@
+---
+
+matrix: &default
+  node: [12, 14]
+  os: [ubuntu-latest, windows-latest, macos-latest]
+  include: &default_icnlude
+    - node: 16
+      os: ubuntu-latest
+
+# Overwrite parameter
+ubuntu:
+  matrix:
+    <<: *default
+    os: [ubuntu-latest]
+
+# Overwrite include
+include:
+  matrix:
+    <<: *default
+    include:
+      - os: ubuntu-18.04
+        node: 10
+
+# Note: All include combinations are processed after exclude. This allows you to use include to add back combinations that were previously excluded.
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
+# Exclude from default matrix
+exclude:
+  matrix:
+    <<: *default
+    exclude:
+      - os: macos-latest
+        node: 12
+      - os: windows-latest
+        node: 14
+
+# Additional parameters
+parameter:
+  matrix:
+    <<: *default
+    experimental: [true]
+    foo: [bar]

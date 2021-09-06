@@ -1,0 +1,23 @@
+name: 'Workflow matrix'
+description: Generate build matrix from yaml file
+author: Dmytro Bondar
+
+branding:
+  icon: greed
+  color: green
+
+inputs:
+  matrix-file:
+    description: 'YAML file with matrix'
+    required: false
+    default: '${{ github.workspace }}/.github/workflow-matrix.yml'
+  workflow:
+    description: 'workflow name to get matrix'
+    required: false
+    default: '${{ github.workflow }}'
+outputs:
+  matrix:
+    description: 'Output generated matrix for workflow'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

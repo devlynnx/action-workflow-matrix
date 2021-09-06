@@ -1,0 +1,30 @@
+name: exclude
+
+on:
+  schedule:
+    - cron: '0 4 * * 6'
+  push:
+  pull_request:
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run ${{ github.repository }}@${{ github.sha }}
+        id: set-matrix
+        uses: ./
+
+  build:
+    runs-on: ${{ matrix.os }}
+    needs: matrix
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.matrix.outputs.matrix) }}
+    steps:
+      - name: Dump matrix context
+        run: echo "$MATRIX_CONTEXT"
+        env:
+          MATRIX_CONTEXT: ${{ toJSON(matrix) }}

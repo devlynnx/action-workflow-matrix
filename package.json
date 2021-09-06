@@ -1,0 +1,30 @@
+{
+  "name": "action-workflow-matrix",
+  "description": "Generate github build matrix from yaml file",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build --minify --license licenses.txt",
+    "test": "node index.js"
+  },
+  "keywords": [
+    "actions",
+    "build",
+    "github",
+    "matrix"
+  ],
+  "author": "Dmytro Bondar",
+  "license": "MIT",
+  "homepage": "https://github.com/bonddim/action-get-build-matrix#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bonddim/action-get-build-matrix.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bonddim/action-get-build-matrix/issues"
+  },
+  "dependencies": {
+    "@actions/core": "^1.5.0",
+    "yaml": "^2.0.0-7"
+  }
+}
