@@ -24,7 +24,7 @@
     "url": "https://github.com/bonddim/action-get-build-matrix/issues"
   },
   "dependencies": {
-    "@actions/core": "^1.5.0",
+    "@actions/core": "^1.7.0",
     "yaml": "^2.0.1"
   }
 }
