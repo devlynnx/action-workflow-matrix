@@ -23,6 +23,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - run: npm i -g yaml
+      shell: sh
     - uses: actions/github-script@v6
       id: script
       with:
